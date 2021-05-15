@@ -58,13 +58,13 @@ def compare_results():
     elif player2_result > player1_result:
         print (f'The WINNER is {player2_name} with the score of {dice_sum_p2}, congrats! \U0001F973')
     else:
-        print ("Well, that's a bummer, it's a TIE. \U0001F631")
+        print (f"Well, that's a bummer, it's a TIE with {dice_sum_p1} each. \U0001F631")
     global rematch
     rematch = yesorno("Do you want a rematch")
     if rematch == True:
         player1_rolls()
         player2_rolls()
-        compare_results()
+        compare_results() #THIS IS ALWAYS ADDING UP SCORES INSTEAD OF RESETING - fix TBD
 #final scores and comparison
 if player2_var == True:
     compare_results()
