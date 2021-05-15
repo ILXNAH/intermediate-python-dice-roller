@@ -1,4 +1,4 @@
-# Intermediate Python Course: Dice ROller
+# Intermediate Python Course: Dice Roller
 
 Hey there, 
 
