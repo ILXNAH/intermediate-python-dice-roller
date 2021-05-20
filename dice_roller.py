@@ -1,10 +1,10 @@
 import random
-player1_name = input('Who is rolling dice today?')
+player1_name = input('Who is rolling dice today? ')
 def yesorno(question):
     prompt = f'{question}? (y/n): '
     ans = input(prompt).strip().lower()
     if ans not in ['y', 'n']:
-        print("Invalid input, try again")
+        print('Invalid input, try again')
         return yesorno(question)
     if ans == 'y':
         return True
@@ -15,19 +15,19 @@ if player2_var == True:
     player2_name = input('Who?')
 
 def dice_size_function():
-    prompt = 'How many sides are the dice?'
+    prompt = 'How many sides are the dice? '
     ans = input(prompt).strip().lower()
-    if ans.digit() == True:
-        ans = int(ans)
-        if ans > 0:
+    try:
+        type(ans) == int
+        if int(ans) > 0:
             return ans
-    else:
-        print("Invalid input, try again")
+    except ValueError:
+        print('Invalid input, try again')
         return dice_size_function()
 
 dice_rolls = int(input('How many dice would you like to roll? '))
-#ORIGINAL - NO FUNCTION >> dice_size = int(input('How many sides are the dice? '))
-dice_size = int(dice_size_function())
+dice_size = dice_size_function()
+dice_size = int(dice_size) #TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
 dice_sum_p1 = 0
 def player1_rolls():
     for i in range(0, dice_rolls):
