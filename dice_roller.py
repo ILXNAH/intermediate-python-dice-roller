@@ -13,8 +13,21 @@ def yesorno(question):
 player2_var = yesorno("Anybody else rollin'")
 if player2_var == True:
     player2_name = input('Who?')
+
+def dice_size_function():
+    prompt = 'How many sides are the dice?'
+    ans = input(prompt).strip().lower()
+    if ans.digit() == True:
+        ans = int(ans)
+        if ans > 0:
+            return ans
+    else:
+        print("Invalid input, try again")
+        return dice_size_function()
+
 dice_rolls = int(input('How many dice would you like to roll? '))
-dice_size = int(input('How many sides are the dice? '))
+#ORIGINAL - NO FUNCTION >> dice_size = int(input('How many sides are the dice? '))
+dice_size = int(dice_size_function())
 dice_sum_p1 = 0
 def player1_rolls():
     for i in range(0, dice_rolls):
