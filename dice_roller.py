@@ -13,21 +13,24 @@ def yesorno(question):
 player2_var = yesorno("Anybody else rollin'")
 if player2_var == True:
     player2_name = input('Who?')
-
 def dice_size_function():
     prompt = 'How many sides are the dice? '
-    ans = input(prompt).strip().lower()
+    ans = input(prompt).strip()
     try:
         type(ans) == int
         if int(ans) > 0:
-            return ans
+            return int(ans)
+        elif int(ans) < 0:
+            print('Invalid input, try again')
+            return dice_size_function()
     except ValueError:
         print('Invalid input, try again')
         return dice_size_function()
-
+    except AttributeError:
+        print('Invalid input, try again')
+        return dice_size_function()
 dice_rolls = int(input('How many dice would you like to roll? '))
 dice_size = dice_size_function()
-dice_size = int(dice_size) #TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
 dice_sum_p1 = 0
 def player1_rolls():
     for i in range(0, dice_rolls):
