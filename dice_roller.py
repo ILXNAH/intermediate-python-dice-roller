@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import random
 player1_name = input('Who is rolling dice today? ')
 def yesorno(question):
